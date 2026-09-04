@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2026-08-15",
+    "platform": "instagram",
+    "post_type": "reel",
+    "likes": 450,
+    "comments": 32,
+    "views": 8200
+  },
+  {
+    "date": "2026-08-16",
+    "platform": "youtube",
+    "post_type": "video",
+    "likes": 620,
+    "comments": 54,
+    "views": 14500
+  },
+  {
+    "date": "2026-08-18",
+    "platform": "x",
+    "post_type": "tweet",
+    "likes": 310,
+    "comments": 45,
+    "views": null
+  },
+  {
+    "date": "2026-08-19",
+    "platform": "tiktok",
+    "post_type": "video",
+    "likes": 580,
+    "comments": 40,
+    "views": 22000
+  },
+  {
+    "date": "2026-08-20",
+    "platform": "linkedin",
+    "post_type": "post",
+    "likes": 290,
+    "comments": 38,
+    "views": 4100
+  },
+  {
+    "date": "2026-08-22",
+    "platform": "instagram",
+    "post_type": "reel",
+    "likes": 80,
+    "comments": 4,
+    "views": 1200
+  }
+]
