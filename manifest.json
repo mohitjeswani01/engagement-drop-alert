@@ -1,0 +1,33 @@
+{
+  "name": "engagement-drop-alert",
+  "description": "Platform-agnostic, zero-API social media post performance monitor. Calculates trailing rolling averages of engagement, detects significant performance drops, and sends Telegram push alerts with dynamic AI recommendations.",
+  "metadata": {
+    "version": "0.1.0",
+    "status": "released",
+    "kind": "atomic",
+    "flow_type": "sequential",
+    "execution_model": "script",
+    "requires_sessions": false,
+    "discoverability": {
+      "tags": [
+        "domain-social-media",
+        "engagement-monitoring",
+        "audience-creators",
+        "effect-write-local"
+      ]
+    },
+    "runtime_dependencies": {
+      "host_tools": [
+        {
+          "id": "python3",
+          "command": "python3",
+          "required": true,
+          "install_hints": [
+            "apt install python3"
+          ]
+        }
+      ]
+    }
+  },
+  "entrypoint": "main.py"
+}

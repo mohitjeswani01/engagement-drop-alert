@@ -1,0 +1,3 @@
+# Zero external runtime dependencies (Python standard library only)
+# Testing dependencies
+pytest>=7.0.0
