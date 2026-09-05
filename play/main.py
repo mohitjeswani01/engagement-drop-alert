@@ -16,22 +16,22 @@ from play.store import get_default_log_path, load_posts, save_posts, StorageErro
 
 def print_summary_table(results: List[Dict[str, Any]], newly_checked_count: int, alerts_sent_count: int) -> None:
     """Print formatted terminal output summarizing the engagement analysis."""
-    print("=" * 80)
+    print("=" * 84)
     print(" 📊 ENGAGEMENT DROP ALERT — SUMMARY REPORT")
-    print("=" * 80)
+    print("=" * 84)
     print(f" Total Posts in Log: {len(results)}")
     print(f" Newly Checked Posts: {newly_checked_count}")
     print(f" Alerts Dispatched: {alerts_sent_count}")
-    print("-" * 80)
+    print("-" * 84)
 
     if not results:
         print(" No posts found in log.")
         print("=" * 80)
         return
 
-    header = f"{'Date':<12} | {'Platform':<10} | {'Type':<8} | {'Score':<8} | {'Avg':<8} | {'Diff %':<8} | {'Status':<15}"
+    header = f"{'Date':<12} | {'Platform':<10} | {'Type':<8} | {'Score':<8} | {'Avg':<8} | {'% Below Avg':<12} | {'Status':<15}"
     print(header)
-    print("-" * 80)
+    print("-" * 84)
 
     for r in results:
         date = r.get("date", "")[:10]
@@ -49,9 +49,9 @@ def print_summary_table(results: List[Dict[str, Any]], newly_checked_count: int,
         if not r.get("checked"):
             status += " (New)"
 
-        print(f"{date:<12} | {platform:<10} | {post_type:<8} | {score:<8} | {rolling_avg:<8} | {diff:<8} | {status:<15}")
+        print(f"{date:<12} | {platform:<10} | {post_type:<8} | {score:<8} | {rolling_avg:<8} | {diff:<12} | {status:<15}")
 
-    print("=" * 80)
+    print("=" * 84)
 
 
 def run_pipeline(filepath: Optional[str] = None, force_recheck: bool = False) -> Dict[str, Any]:
