@@ -54,6 +54,23 @@ def print_summary_table(results: List[Dict[str, Any]], newly_checked_count: int,
     print("=" * 84)
 
 
+def load_env_file(env_path: str = ".env") -> None:
+    """Load key-value pairs from .env file into os.environ if not already present."""
+    if os.path.exists(env_path):
+        try:
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        key, val = line.split("=", 1)
+                        key = key.strip()
+                        val = val.strip().strip("'\"")
+                        if key and key not in os.environ:
+                            os.environ[key] = val
+        except IOError:
+            pass
+
+
 def run_pipeline(filepath: Optional[str] = None, force_recheck: bool = False) -> Dict[str, Any]:
     """Execute the full engagement drop alert pipeline.
 
@@ -69,6 +86,7 @@ def run_pipeline(filepath: Optional[str] = None, force_recheck: bool = False) ->
     Returns:
         Summary dict containing counts and results.
     """
+    load_env_file()
     log_path = filepath or get_default_log_path()
 
     try:
